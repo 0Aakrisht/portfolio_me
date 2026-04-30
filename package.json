@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-  "dev": "vite",
-  "build": "npx vite build",
-  "preview": "vite preview"
-}git add package.json
-git commit -m "fix: use npx for vite build"
-git push
+    "dev": "vite",
+    "build": "npx vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "framer-motion": "^10.12.16",
     "lucide-react": "^0.300.0",
