@@ -74,16 +74,19 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="pt-24 pb-48 md:pb-64 relative">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center md:text-left mb-16 max-w-2xl mx-auto md:mx-0">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-text-main tracking-tight">
-            {content.title}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 md:mb-20 text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-black text-text-main tracking-tight">
+            My Work
           </h2>
-          <p className="text-text-muted text-lg font-medium">
-            {content.subtitle}
-          </p>
-        </div>
+        </motion.div>
 
         {/* Gallery Container */}
         <div className="relative max-w-[900px] mx-auto mb-16">
