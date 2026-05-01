@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import myLogo from "../assets/my_logo.svg";
 
 export default function Navbar() {
@@ -34,7 +34,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: isHidden ? -150 : 0 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none"
+      className="fixed top-0 left-0 right-0 z-50 p-4 pointer-events-none md:p-6"
     >
       <div
         className={`pointer-events-auto max-w-7xl mx-auto px-6 py-2 md:py-2 flex items-center justify-between rounded-full border border-black/10 transition-all duration-500 hover:border-black/20 ${
@@ -46,14 +46,14 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="#"
-          className="flex items-center gap-3 text-lg md:text-xl text-text-main hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 text-lg transition-opacity md:text-xl text-text-main hover:opacity-80"
         >
-          {/* Avatar Placeholder */}
-          <div className="w-9 h-9 md:w-11 md:h-11 rounded-xl flex items-center justify-center overflow-hidden border border-black/10 shadow-sm bg-white">
+          {/* Avatar Placeholder - Made larger */}
+          <div className="flex items-center justify-center w-10 h-10 overflow-hidden bg-transparent md:w-14 md:h-14 rounded-xl">
             <img
               src={myLogo}
               alt="Aakrisht Logo"
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
           {/* Cursive-style name */}
@@ -63,16 +63,18 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <button className="px-7 py-2.5 bg-black text-white text-sm font-semibold rounded-xl hover:bg-gray-800 hover:scale-105 transition-all shadow-md active:scale-95">
-            Resume
+        <div className="items-center hidden gap-8 md:flex">
+          <button className="group relative flex items-center gap-2 px-6 py-2.5 bg-black text-white text-sm font-medium rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
+            <span>Resume</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
-          <button className="px-5 py-2 bg-black text-white text-xs font-semibold rounded-xl hover:bg-gray-800 transition-all shadow-sm active:scale-95">
-            Resume
+        <div className="flex items-center gap-4 md:hidden">
+          <button className="group flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white transition-all bg-black rounded-full hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
+            <span>Resume</span>
+            <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
         </div>
       </div>
