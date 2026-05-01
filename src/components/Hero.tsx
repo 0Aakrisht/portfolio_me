@@ -35,17 +35,6 @@ export default function Hero() {
           variants={containerVariants}
           className="flex flex-col items-start w-full max-w-5xl"
         >
-          {/* Status Pill - Ultra Minimal */}
-          <motion.div
-            variants={itemVariants}
-            className="mb-10 inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-black/10 bg-white/40 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.02)]"
-          >
-            <div className="w-2 h-2 rounded-full bg-black animate-pulse" />
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-black uppercase font-mono mt-[1px]">
-              Status: Open
-            </span>
-          </motion.div>
-
           {/* Main Title - Brutalist/Minimalist Typography */}
           <motion.h1
             variants={itemVariants}
@@ -64,16 +53,43 @@ export default function Hero() {
           {/* Subtext Container */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col gap-4 max-w-2xl"
+            className="flex flex-col items-start gap-4 max-w-2xl"
           >
-            <h2 className="text-xl md:text-3xl font-mono text-black font-semibold tracking-tighter">
-              Code now. Google later.
+            <h2 className="text-xl md:text-3xl font-mono text-black font-semibold tracking-tighter flex items-center">
+              <span>
+                {"Code now. Google later.".split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.01, delay: 0.8 + index * 0.06 }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                className="inline-block w-[2px] md:w-[3px] h-[22px] md:h-[30px] bg-black ml-1 md:ml-2"
+              />
             </h2>
 
-            <p className="text-base md:text-xl text-black/50 font-medium leading-relaxed tracking-tight">
+            <p className="text-base md:text-xl text-black/50 font-medium leading-relaxed tracking-tight mb-2">
               Student web developer figuring things out and building highly
               aesthetic, digital experiences along the way.
             </p>
+
+            {/* Status Pill - Moved below the description */}
+            <div className="mt-2 inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-black/10 bg-white/40 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-black uppercase font-mono mt-[1px]">
+                Open
+              </span>
+            </div>
           </motion.div>
         </motion.div>
       </div>
