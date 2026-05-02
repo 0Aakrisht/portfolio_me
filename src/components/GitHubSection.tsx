@@ -12,11 +12,11 @@ export default function GitHubSection() {
   useEffect(() => {
     const fetchGitHubStats = async () => {
       try {
-        const userRes = await fetch("https://api.github.com/users/0Aakrisht");
+        const userRes = await fetch("https://api.github.com/users/aakrisht-dev");
         const userData = await userRes.json();
 
         const reposRes = await fetch(
-          "https://api.github.com/users/0Aakrisht/repos?per_page=100",
+          "https://api.github.com/users/aakrisht-dev/repos?per_page=100",
         );
         const reposData = await reposRes.json();
         const starsCount = Array.isArray(reposData)
@@ -29,7 +29,7 @@ export default function GitHubSection() {
         let prsCount = "50+";
         try {
           const prsRes = await fetch(
-            "https://api.github.com/search/issues?q=author:0Aakrisht+type:pr",
+            "https://api.github.com/search/issues?q=author:aakrisht-dev+type:pr",
           );
           const prsData = await prsRes.json();
           if (prsData.total_count !== undefined) {
